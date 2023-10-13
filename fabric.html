@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editace obrázku s Fabric.js</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://www.kafco-cajda.cz/css/bag-image-edit.css">
+
+    <style>
+        .bag-image-edit__container:after{
+            top: 0;
+            margin-top: 0;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bag-image-edit__container">
+        <div class="canvas-container">
+            <canvas id="canvas" width="400" height="400"></canvas>
+        </div>
+    </div>
+
+    <img id="results" alt="Results">
+
+    <button id="export-button">Export</button>
+    <button id="remove-button">Odstranit</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://www.kafco-cajda.cz/js/vendor/fabric.min.js"></script>
+    <script src="https://www.kafco-cajda.cz/js/vendor/fabric.customiseControls.min.js"></script>
+    <script src="bag-image-canvas.js"></script>
+
+    <script>
+        // Vytvoříme si obrázek
+        addImage('test.png');
+
+        const exportButton = document.getElementById('export-button');
+        exportButton.addEventListener('click', function () {
+            generateImageFromCanvas();
+        });
+
+        const removeButton = document.getElementById('remove-button');
+        removeButton.addEventListener('click', function () {
+            removeImage();
+        });
+    </script>
+</body>
+</html>
